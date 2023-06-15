@@ -1,0 +1,4 @@
+<app-movie-card class="movie-list-container" 
+               *ngFor="let mv of movieList$ | async;trackBy: trackByFn" 
+               [movie]="mv"
+               (delete)="deleteGetMovie($event)"></app-movie-card>

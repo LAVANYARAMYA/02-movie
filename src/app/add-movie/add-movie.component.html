@@ -1,0 +1,53 @@
+<form class="add-movie-form" [formGroup]="addMovieForm" (ngSubmit)="onSubmit()">
+    <input type="text" placeholder="name" formControlName="name" />
+  
+    <div *ngIf="name?.invalid && name?.touched">
+      <p *ngIf="name?.errors?.['required']">Why not to fill this name 😉?</p>
+    </div>
+  
+    <input type="text" placeholder="poster" formControlName="poster" />
+  
+    <div *ngIf="poster?.invalid && poster?.touched">
+      <p *ngIf="poster?.errors?.['required']">Why not to fill this poster 😉?</p>
+      <p *ngIf="poster?.errors?.['pattern']">Need a valid URL 😉</p>
+    </div>
+  
+    <input type="number" placeholder="rating" formControlName="rating" />
+  
+    <div *ngIf="rating?.invalid && rating?.touched">
+      <p *ngIf="rating?.errors?.['required']">Why not to fill this rating 😉?</p>
+      <p *ngIf="rating?.errors?.['min']">Fill up with extra rating ⭐</p>
+      <p *ngIf="rating?.errors?.['max']">Too much rating 😯</p>
+    </div>
+  
+    <input type="text" placeholder="summary" formControlName="summary" />
+  
+    <div *ngIf="summary?.invalid && summary?.touched">
+      <p *ngIf="summary?.errors?.['required']">
+        Why not to fill this summary 😉?
+      </p>
+      <p *ngIf="summary?.errors?.['minlength']">
+        More wordings will be appreciated 😁
+      </p>
+    </div>
+  
+    <input type="text" placeholder="Trailer" formControlName="trailer" />
+  
+    <div *ngIf="trailer?.invalid && trailer?.touched">
+      <p *ngIf="trailer?.errors?.['required']">
+        Why not to fill this trailer 😉?
+      </p>
+      <p *ngIf="trailer?.errors?.['pattern']">Need a valid URL 😉</p>
+    </div>
+  
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="addMovieForm.invalid"
+    >
+      Add Movie
+    </button>
+  </form>
+  
+  

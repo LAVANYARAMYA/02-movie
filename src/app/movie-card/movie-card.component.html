@@ -1,0 +1,14 @@
+<div class="movie-container">
+    <img class="movie-poster" [src]="movie.poster" [alt]="movie.name">
+    <div class="movie-spec">
+    <h2>{{movie.name}}</h2>
+    <h2 >⭐{{movie.rating}}</h2>
+</div>
+<button (click)="toggleSummary()">ToggleSummary</button>
+<button (click)="goToDetails(movie.id)">Info</button>
+    <p class="movie-summary" *ngIf="show">{{movie.summary}}</p>
+    <div class="action-items">
+        <app-counter></app-counter>
+        <button (click)="delMovie(movie.id)">Delete</button>
+    </div>
+</div>
